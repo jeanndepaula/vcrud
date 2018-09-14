@@ -1,0 +1,28 @@
+<br>
+{{#link-to "user.new" tagName='button'}}
+Novo Usuário
+{{/link-to}}
+<br>
+<br>
+<div>
+  {{outlet}}
+</div>
+<br>
+<hr>
+<table>
+  <tbody>
+    {{log model}}
+    {{#each model as |user|}}
+      <tr>
+        <td>{{user.name}}</td>
+        <td>{{user.login}}</td>
+        <td>
+          {{!-- <button {{action 'editUser' user.id}}>Add</button> --}}
+          {{#link-to 'user.edit' 1 tagName='button'}}
+          Editar
+          {{/link-to}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
